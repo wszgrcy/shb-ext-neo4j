@@ -1,0 +1,12 @@
+services:
+  neo4j:
+    image: neo4j:2025.03.0-community-bullseye
+    ports:
+      - '7474:7474'
+      - '7687:7687'
+    volumes:
+      - neo4j_data:/data
+    environment:
+      - NEO4J_AUTH=none
+volumes:
+  neo4j_data:

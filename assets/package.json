@@ -1,0 +1,102 @@
+{
+	"name": "shb-neo4j",
+	"displayName": "shb-neo4j",
+	"description": "生花笔知识库内容传入neo4j",
+	"version": "0.0.1",
+	"publisher": "wszgrcy",
+	"repository": "https://github.com/Microsoft/vscode-extension-samples/helloworld-sample",
+	"engines": {
+		"vscode": "^1.98.0"
+	},
+	"categories": [
+		"Other"
+	],
+	"extensionDependencies": [
+		"wszgrcy.shenghuabi"
+	],
+	"activationEvents": [
+		"*"
+	],
+	"main": "./index.js",
+	"contributes": {
+		"commands": [],
+		"configuration": [
+			{
+				"title": "shb-neo4j配置",
+				"properties": {
+					"shb-neo4j.server": {
+						"type": "object",
+						"additionalProperties": false,
+						"properties": {
+							"url": {
+								"type": "string",
+								"default": "bolt://localhost:7687"
+							},
+							"auth": {
+								"type": "object",
+								"additionalProperties": false,
+								"properties": {
+									"basic": {
+										"type": "object",
+										"additionalProperties": false,
+										"properties": {
+											"username": {
+												"type": "string"
+											},
+											"password": {
+												"type": "string"
+											},
+											"realm": {
+												"type": "string"
+											}
+										},
+										"required": [
+											"username",
+											"password"
+										]
+									},
+									"kerberos": {
+										"type": "string"
+									},
+									"bearer": {
+										"type": "string"
+									},
+									"custom": {
+										"type": "object",
+										"additionalProperties": false,
+										"properties": {
+											"principal": {
+												"type": "string"
+											},
+											"credentials": {
+												"type": "string"
+											},
+											"realm": {
+												"type": "string"
+											},
+											"scheme": {
+												"type": "string"
+											},
+											"parameters": {
+												"type": "object",
+												"additionalProperties": {}
+											}
+										},
+										"required": [
+											"principal",
+											"credentials",
+											"realm",
+											"scheme"
+										]
+									}
+								},
+								"required": []
+							}
+						},
+						"required": []
+					}
+				}
+			}
+		]
+	}
+}
